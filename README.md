@@ -33,11 +33,8 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 ## Acknowledgments
 
 - [Probot](https://probot.github.io/docs/)
-
 - [Migarjo - probot-create-issue-on-repo](https://github.com/migarjo/probot-create-issue-on-repo-creation)
-
 - [Andrew Lock | .NET Escapades](https://andrewlock.net/creating-my-first-github-app-with-probot-part-1-create-probot-app/)
-
 - [Github Learning Lab](https://lab.github.com/githubtraining/getting-started-with-github-apps)
 
 
