@@ -6,61 +6,82 @@
 class ProtectDefaultBranch {
   constructor (robot) {
     this.robot = robot
-    this.context = {}
   }
 
-  async RunBranchWorkflow (context) {
+  RunBranchWorkflow (context) {
     // Assign class level vars
     this.context = context
     this.branchName = this.context.payload.repository.default_branch
     this.repositoryName = this.context.payload.repository.branchName
     this.orgName = this.context.payload.repository.owner.login
 
-    let isProtected = await this.IsDefaultBranchProtected()
+    // Determine if the default branch is protected
+    let isProtected = this.IsDefaultBranchProtected()
 
+    // If not, protect it, if so, do nothing
     if (!isProtected) {
-      let isProtected = await ProtectDefaultBranch()
-
-      if (!isProtected) {
-        console.log('An error occurred protecting the default branch')
-      } else {
-        console.log('The default branch has been protected.')
-      }
+      this.ProtectDefaultBranch()
+      console.log('An error occurred protecting the default branch')
+    } else {
+      console.log('The default branch has been protected.')
     }
   }
 
-  async IsDefaultBranchProtected () {
-    var branchName = this.context.payload.repository.default_branch
-    var repositoryName = this.context.payload.repository.branchName
-    var orgName = this.context.payload.repository.owner.login
+  IsDefaultBranchProtected () {
+    // Get parameter details
+    var details = this.GetBranchDetails()
 
+    // Pull branch protection information from GitHub
     var response = this.context.github.repos.getBranchProtection({
-      owner: orgName,
-      repo: repositoryName,
-      branch: branchName,
+      owner: details.orgName,
+      repo: details.repositoryName,
+      branch: details.branchName,
       mediaType: {
         previews: ['luke-cage-preview']
       }
     })
 
-
+    // If we receive a 'Message' object stating that the branch is not protected in our response, return false.
+    if (typeof (response.message) !== 'undefined' && response.message === 'Branch not protected') {
+      return true
+    } else {
+      return false
+    }
   }
 
-  async ProtectDefaultBranch () {
+  // Protect the default branch
+  ProtectDefaultBranch () {
+    // Get parameter details
+    var details = this.GetBranchDetails()
 
+    // Update branch protection with minimal values. In this case, only requiring 1 approval.
+    this.context.github.repos.updateBranchProtection({
+      owner: details.orgName,
+      repo: details.repositoryName,
+      branch: details.branchName,
+      required_status_checks: null,
+      enforce_admins: true,
+      required_pull_request_reviews: {
+        required_approving_review_count: 1
+      },
+      restrictions: null
+    })
   }
 
+  // Function to pull values from the webhook body.
   GetBranchDetails () {
     let branchDetails = {
       branchName: this.context.payload.repository.default_branch,
       repositoryName: this.context.payload.repository.branchName,
       orgName: this.context.payload.repository.owner.login
     }
-    return
+    return branchDetails
   }
 }
 
 module.exports = robot => {
   const handler = new ProtectDefaultBranch(robot)
-  robot.on('Create', async context => { return handler.RunBranchWorkflow(context) })
+  robot.on('Create', context => {
+    return handler.RunBranchWorkflow(context)
+  })
 }
