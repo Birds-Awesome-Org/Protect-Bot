@@ -55,12 +55,14 @@ class ProtectDefaultBranch {
     var details = this.GetBranchDetails()
 
     // Update branch protection with minimal values. In this case, only requiring 1 approval.
+    // Documentation on this functionality can be found here: https://developer.github.com/v3/repos/branches/#update-branch-protection
     this.context.github.repos.updateBranchProtection({
       owner: details.orgName,
       repo: details.repositoryName,
       branch: details.branchName,
       required_status_checks: null,
       enforce_admins: true,
+      dismiss_stale_reviews: true,
       required_pull_request_reviews: {
         required_approving_review_count: 1
       },
