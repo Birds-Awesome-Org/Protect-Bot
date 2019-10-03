@@ -87,3 +87,15 @@ module.exports = robot => {
     return handler.RunBranchWorkflow(context)
   })
 }
+
+
+// Issue creation content
+// Documentation on this functionality can be found here: https://developer.github.com/v3/issues/#create-an-issue
+// { 
+// title: "Updated branch protection on default branch",
+// body: "@{{ $repo.owner }} the default branch has been protected with the following specifications:
+// /n - Required reviews by 1 person
+// /n - Dismissal of stale reviews (if someone makes a commit after an approval, the approval is removed)
+// /n - Enforcement of rules on Admins",
+// assignees: @{{ repo.owner }}
+// }
