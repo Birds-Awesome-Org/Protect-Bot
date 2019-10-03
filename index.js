@@ -21,9 +21,9 @@ class ProtectDefaultBranch {
     // If not, protect it, if so, do nothing
     if (!isProtected) {
       this.ProtectDefaultBranch()
-      console.log('An error occurred protecting the default branch')
-    } else {
       console.log('The default branch has been protected.')
+    } else {
+      console.log('The specified branch is already protected.')
     }
   }
 
