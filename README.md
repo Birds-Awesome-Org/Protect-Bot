@@ -2,6 +2,8 @@
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that automatically protects the default (often `master`) branch of a newly created repository within an organization and alerts the repository creator of the protection. 
 
+>![Probot](https://avatars1.githubusercontent.com/u/26350515?s=280&v=4)
+
 ## Setup
 
 Probot applications can be [deployed](https://probot.github.io/docs/deployment/) from a handful of locations such as Glitch, Heroku, Now, and others. The following setup instructions are for getting the Probot application up and running locally for proof-of-concept testing or general interest.
@@ -28,6 +30,17 @@ If you have suggestions for how protect-branch could be improved, or want to rep
 
 For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
+## Acknowledgments
+
+- [Probot](https://probot.github.io/docs/)
+
+- [Migarjo - probot-create-issue-on-repo](https://github.com/migarjo/probot-create-issue-on-repo-creation)
+
+- [Andrew Lock | .NET Escapades](https://andrewlock.net/creating-my-first-github-app-with-probot-part-1-create-probot-app/)
+
+- [Github Learning Lab](https://lab.github.com/githubtraining/getting-started-with-github-apps)
+
+
 ## License
 
-[ISC](LICENSE) © 2019 Stephen Bird <stephencbird@gmail.com>
+[ISC](LICENSE) © 2019 Stephen Bird <bird.stephen.c@gmail.com>
