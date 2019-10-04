@@ -92,9 +92,9 @@ class ProtectDefaultBranch {
     // Documentation on this functionality can be found here: https://developer.github.com/v3/issues/#create-an-issue
     let issueBody = '@stephencbird the default branch has been protected with the following specifications:\n'
     issueBody += '\n'
-    issueBody += 'Required reviews by 1 person\n'
-    issueBody += 'Dismissal of stale reviews (if someone makes a commit after an approval, the approval is removed)\n'
-    issueBody += 'Enforcement of rules on Admins\n'
+    issueBody += '- Required reviews by 1 person\n'
+    issueBody += '- Dismissal of stale reviews (if someone makes a commit after an approval, the approval is removed)\n'
+    issueBody += '- Enforcement of rules on Admins\n'
     return this.context.github.issues.create({
       owner: this.context.payload.repository.owner.login,
       repo: this.context.payload.repository.name,
