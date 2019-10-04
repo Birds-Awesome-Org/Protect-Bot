@@ -2,7 +2,7 @@
   "name": "protect-branch",
   "version": "1.0.0",
   "description": "A Probot app",
-  "author": "Stephen Bird <hollywood@github.com>",
+  "author": "Stephen Bird <bird.stephen.c@gmail.com>",
   "license": "ISC",
   "repository": "https://github.com//protect-branch.git",
   "homepage": "https://github.com//protect-branch",
