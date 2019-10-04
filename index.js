@@ -42,6 +42,8 @@ class ProtectDefaultBranch {
       }
     })
 
+    this.robot.log(response)
+
     // If we receive a 'Message' object stating that the branch is not protected in our response, return false.
     if (typeof (response.message) !== 'undefined' && response.message === 'Branch not protected') {
       return true
@@ -54,6 +56,7 @@ class ProtectDefaultBranch {
   ProtectDefaultBranch () {
     // Get parameter details
     var details = this.GetBranchDetails()
+    this.robot.log('Protecting Branch')
 
     // Update branch protection with minimal values. In this case, only requiring 1 approval.
     // Documentation on this functionality can be found here: https://developer.github.com/v3/repos/branches/#update-branch-protection
@@ -75,7 +78,7 @@ class ProtectDefaultBranch {
   GetBranchDetails () {
     let branchDetails = {
       branchName: this.context.payload.repository.default_branch,
-      repositoryName: this.context.payload.repository.branchName,
+      repositoryName: this.context.payload.repository.name,
       orgName: this.context.payload.repository.owner.login
     }
     return branchDetails
@@ -84,6 +87,7 @@ class ProtectDefaultBranch {
   async CreateIssue () {
     // Documentation on this functionality can be found here: https://developer.github.com/v3/issues/#create-an-issue
     let issueBody = '@stephencbird the default branch has been protected with the following specifications:\n'
+    issueBody += '\n'
     issueBody += 'Required reviews by 1 person\n'
     issueBody += 'Dismissal of stale reviews (if someone makes a commit after an approval, the approval is removed)\n'
     issueBody += 'Enforcement of rules on Admins\n'
