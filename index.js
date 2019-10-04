@@ -37,8 +37,8 @@ class ProtectDefaultBranch {
       owner: details.orgName,
       repo: details.repositoryName,
       branch: details.branchName,
-      headers: {
-        accept: 'application/vnd.github.luke-cage-preview+json'
+      mediaType: {
+        previews: ['luke-cage-preview']
       }
     })
 
@@ -70,7 +70,10 @@ class ProtectDefaultBranch {
       required_pull_request_reviews: {
         required_approving_review_count: 1
       },
-      restrictions: null
+      restrictions: null,
+      mediaType: {
+        previews: ['luke-cage-preview']
+      }
     })
   }
 
