@@ -37,8 +37,8 @@ class ProtectDefaultBranch {
       owner: details.orgName,
       repo: details.repositoryName,
       branch: details.branchName,
-      mediaType: {
-        previews: ['luke-cage']
+      headers: {
+        accept: 'application/vnd.github.luke-cage-preview+json'
       }
     })
 
