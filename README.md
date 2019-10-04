@@ -64,7 +64,7 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 - [Andrew Lock | .NET Escapades](https://andrewlock.net/creating-my-first-github-app-with-probot-part-1-create-probot-app/)
 - [Github Learning Lab](https://lab.github.com/githubtraining/getting-started-with-github-apps)
 - [Toadstool](https://github.com/Hollywood/toadstool)
-- Shout out to @Hollywood & @Beardofedu for the QA sessions
+- Shout out to [**@Hollywood**](www.github.com/hollywood) & [**@Beardofedu**](www.github.com/beardofedu) for the QA sessions
 
 ## Current implementation
 
