@@ -30,7 +30,7 @@ If you have suggestions for how protect-branch could be improved, or want to rep
 
 For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
-## Acknowledgments
+## Attribution
 
 - [Probot](https://probot.github.io/docs/)
 - [Migarjo - probot-create-issue-on-repo](https://github.com/migarjo/probot-create-issue-on-repo-creation)
