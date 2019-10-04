@@ -71,6 +71,7 @@ class ProtectDefaultBranch {
         dismiss_stale_reviews: true
       },
       restrictions: null,
+      // This header is currently implemented for the beta functionality to dismiss stale reviews and required reviewers
       headers: {
         accept: 'application/vnd.github.luke-cage-preview+json'
       }
