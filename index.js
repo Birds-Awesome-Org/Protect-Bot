@@ -66,9 +66,9 @@ class ProtectDefaultBranch {
       branch: details.branchName,
       required_status_checks: null,
       enforce_admins: true,
-      dismiss_stale_reviews: true,
       required_pull_request_reviews: {
-        required_approving_review_count: 1
+        required_approving_review_count: 1,
+        dismiss_stale_reviews: true
       },
       restrictions: null,
       headers: {
