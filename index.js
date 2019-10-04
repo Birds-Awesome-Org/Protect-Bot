@@ -71,8 +71,8 @@ class ProtectDefaultBranch {
         required_approving_review_count: 1
       },
       restrictions: null,
-      mediaType: {
-        previews: ['luke-cage-preview']
+      headers: {
+        accept: 'application/vnd.github.luke-cage-preview+json'
       }
     })
   }
