@@ -12,7 +12,7 @@ class ProtectDefaultBranch {
     // Assign class level vars
     this.context = context
     this.branchName = this.context.payload.repository.default_branch
-    this.repositoryName = this.context.payload.repository.branchName
+    this.repositoryName = this.context.payload.repository.name
     this.orgName = this.context.payload.repository.owner.login
 
     // Determine if the default branch is protected
@@ -21,6 +21,7 @@ class ProtectDefaultBranch {
     // If not, protect it, if so, do nothing
     if (!isProtected) {
       this.ProtectDefaultBranch()
+      this.CreateIssue()
       console.log('The default branch has been protected.')
     } else {
       console.log('The specified branch is already protected.')
@@ -79,23 +80,26 @@ class ProtectDefaultBranch {
     }
     return branchDetails
   }
+
+  async CreateIssue () {
+    // Documentation on this functionality can be found here: https://developer.github.com/v3/issues/#create-an-issue
+    let issueBody = '@stephencbird the default branch has been protected with the following specifications:\n'
+    issueBody += 'Required reviews by 1 person\n'
+    issueBody += 'Dismissal of stale reviews (if someone makes a commit after an approval, the approval is removed)\n'
+    issueBody += 'Enforcement of rules on Admins\n'
+    return this.context.github.issues.create({
+      owner: this.context.payload.repository.owner.login,
+      repo: this.context.payload.repository.name,
+      title: 'Updated Branch Protection on Default Branch',
+      body: issueBody,
+      labels: ['branch-protection']
+    }).catch(error => this.robot.log(error))
+  }
 }
 
 module.exports = robot => {
   const handler = new ProtectDefaultBranch(robot)
-  robot.on('Create', context => {
+  robot.on('create', context => {
     return handler.RunBranchWorkflow(context)
   })
 }
-
-
-// Issue creation content
-// Documentation on this functionality can be found here: https://developer.github.com/v3/issues/#create-an-issue
-// { 
-// title: "Updated branch protection on default branch",
-// body: "@stephencbird the default branch has been protected with the following specifications:
-// /n - Required reviews by 1 person
-// /n - Dismissal of stale reviews (if someone makes a commit after an approval, the approval is removed)
-// /n - Enforcement of rules on Admins",
-// assignees: @{{ repo.owner }}
-// }
