@@ -4,6 +4,17 @@
 
 ![Probot](https://avatars1.githubusercontent.com/u/26350515?s=280&v=4)
 
+## Example of Functionality
+
+- To see this in action goto:
+[Test1](https://github.com/Birds-Awesome-Org/test1)
+
+## Current implementation
+
+This Probot application is currently being deployed on [Heroku](https://www.heroku.com/) for the testing of this application. 
+
+If you would like to test the application out, please reach out to me (bird.stephen.c@gmail.com) to be given access to this organization. 
+
 ## Setup
 
 Probot applications can be [deployed](https://probot.github.io/docs/deployment/) from a handful of locations such as Glitch, Heroku, Now, and others. The following setup instructions are for getting the Probot application up and running locally for proof-of-concept testing or general interest.
@@ -65,12 +76,6 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 - [Github Learning Lab](https://lab.github.com/githubtraining/getting-started-with-github-apps)
 - [Toadstool](https://github.com/Hollywood/toadstool)
 - Shout out to [**@Hollywood**](www.github.com/hollywood) & [**@Beardofedu**](www.github.com/beardofedu) for the QA sessions
-
-## Current implementation
-
-This Probot application is currently being deployed on [Heroku](https://www.heroku.com/) for the testing of this application. 
-
-If you would like to test the application out, please reach out to me (bird.stephen.c@gmail.com) to be given access to this organization. 
 
 ## License
 
