@@ -39,7 +39,7 @@ If you need to run ngrok to get a public facing URI, open your command prompt an
 
 The command should produce a screen that looks like:
 
-![](https://chris.59north.com/image.axd?picture=image_82.png)
+![](http://i.imgur.com/Bt6ADL6.png)
 
 Grab the value that is printed next to the label "Forwarding". Also, please keep in mind that the URI value changes every time you start the ngrok service. You will need to update your Webhook if you stop it and restart it.
 
@@ -59,11 +59,17 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
 ## Attribution
 
-- [Probot](https://probot.github.io/docs/)
+- [Probot](https://probot.github.io/docs/) 
 - [Migarjo - probot-create-issue-on-repo](https://github.com/migarjo/probot-create-issue-on-repo-creation)
 - [Andrew Lock | .NET Escapades](https://andrewlock.net/creating-my-first-github-app-with-probot-part-1-create-probot-app/)
 - [Github Learning Lab](https://lab.github.com/githubtraining/getting-started-with-github-apps)
+- [Toadstool](https://github.com/Hollywood/toadstool)
 
+## Current implementation
+
+This Probot application is currently being deployed on [Heroku](https://www.heroku.com/) for the testing of this application. 
+
+If you would like to test the application out, please reach out to me (bird.stephen.c@gmail.com) to be given access to this organization. 
 
 ## License
 
