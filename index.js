@@ -38,7 +38,7 @@ class ProtectDefaultBranch {
       repo: details.repositoryName,
       branch: details.branchName,
       mediaType: {
-        previews: ['luke-cage-preview']
+        previews: ['luke-cage']
       }
     })
 
