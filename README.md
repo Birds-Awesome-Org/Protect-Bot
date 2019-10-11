@@ -2,7 +2,9 @@
 
  A GitHub App built with [Probot](https://github.com/probot/probot) that automatically protects the default (often `master`) branch of a newly created repository within an organization and alerts the repository creator of the protection. 
 
-![Probot](https://avatars1.githubusercontent.com/u/26350515?s=280&v=4)
+<p align="center">
+  <img width="280" height="280" src="https://avatars1.githubusercontent.com/u/26350515?s=280&v=4">
+</p>
 
 ## Example of Functionality
 
